@@ -37,7 +37,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <img src="/oil-drop.svg" alt="Sri Aarumugan Oil Mills" className="w-10 h-10" />
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="hidden md:inline text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Sri Aarumugan Oil Mills
             </span>
           </Link>

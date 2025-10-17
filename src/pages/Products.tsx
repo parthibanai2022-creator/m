@@ -4,20 +4,27 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import ProductCard from '@/components/ProductCard';
+import { useState, useMemo } from 'react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 export default function Products() {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
+  const [query, setQuery] = useState('');
 
-  const { data: products, refetch } = useQuery({
-    queryKey: ['products'],
+  const { data: products, refetch, isFetching } = useQuery({
+    queryKey: ['products', query],
     queryFn: async () => {
-      const { data, error } = await supabase
+      let q = supabase
         .from('products')
         .select('*')
         .eq('is_active', true)
         .order('created_at', { ascending: false });
-
+      if (query.trim()) {
+        q = q.ilike('name', `%${query.trim()}%`);
+      }
+      const { data, error } = await q;
       if (error) throw error;
       return data;
     },
@@ -54,10 +61,20 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Products Grid */
+      {/* Search + Products Grid */
       /* Show 1 product on mobile, 3 on desktop */}
       <section className="py-12">
         <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-8 flex gap-2">
+            <Input
+              placeholder="Search products by name..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <Button variant="outline" onClick={() => refetch()} disabled={isFetching}>
+              {isFetching ? 'Searching...' : 'Search'}
+            </Button>
+          </div>
           {products && products.length > 0 ? (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {products.map((product) => (

@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingCart, Heart, User, LogOut, LayoutDashboard, Shield, House, Package, Info, Phone, FileText } from 'lucide-react';
+import { ShoppingCart, Heart, User, LogOut, LayoutDashboard, Shield, House, Package, Info, Phone, FileText, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { useQuery } from '@tanstack/react-query';
@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default function Navbar() {
   const { user, isAdmin, signOut } = useAuth();
@@ -41,8 +42,8 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Navigation Tabs */}
-          {user && (
+          {/* Navigation Tabs (desktop only) */}
+          {(user) && (
             <div className="hidden md:flex items-center gap-2">
               <Button
                 variant="ghost"
@@ -130,7 +131,7 @@ export default function Navbar() {
 
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon">
+                    <Button variant="ghost" size="icon" className="hidden md:flex">
                       <User className="h-5 w-5" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -170,6 +171,18 @@ export default function Navbar() {
               </>
             ) : (
               <div className="flex items-center gap-2">
+                {/* Hide products shortcut on mobile; available in menu */}
+                <Button
+                  variant="ghost"
+                  onClick={() => navigate('/products')}
+                  className={cn(
+                    "gap-2 hidden md:flex",
+                    location.pathname === '/products' && "bg-accent"
+                  )}
+                >
+                  <Package className="h-4 w-4" />
+                  Products
+                </Button>
                 <Button variant="outline" onClick={() => navigate('/auth')}>
                   Login
                 </Button>
@@ -178,6 +191,47 @@ export default function Navbar() {
                 </Button>
               </div>
             )}
+
+            {/* Mobile menu trigger (rightmost) */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80">
+                <div className="flex flex-col gap-2 mt-8">
+                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/')}> 
+                    <House className="h-4 w-4" /> Home
+                  </Button>
+                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/products')}> 
+                    <Package className="h-4 w-4" /> Products
+                  </Button>
+                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/about')}> 
+                    <Info className="h-4 w-4" /> About Us
+                  </Button>
+                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/contact')}> 
+                    <Phone className="h-4 w-4" /> Contact Us
+                  </Button>
+                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/policy')}> 
+                    <FileText className="h-4 w-4" /> Policy
+                  </Button>
+                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/orders')}> 
+                    <ShoppingCart className="h-4 w-4" /> My Orders
+                  </Button>
+                  {isAdmin && (
+                    <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/admin')}> 
+                      <LayoutDashboard className="h-4 w-4" /> Admin Dashboard
+                    </Button>
+                  )}
+                  {user && (
+                    <Button variant="destructive" className="justify-start gap-2 mt-2" onClick={signOut}> 
+                      <LogOut className="h-4 w-4" /> Logout
+                    </Button>
+                  )}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>

@@ -46,11 +46,11 @@ export default function Index() {
       <section className="bg-gradient-to-br from-primary/10 via-secondary/5 to-background py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Premium Quality Oils
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent">
+              Sweet Delights Await
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Discover the finest selection of cooking oils for your kitchen. Pure, healthy, and authentic.
+              Discover our delicious selection of cakes and pastries. Fresh, soft, and irresistible.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function Index() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Our Products</h2>
+            <h2 className="text-3xl font-bold">Our Menu</h2>
           </div>
 
           {products && products.length > 0 ? (
@@ -71,7 +71,7 @@ export default function Index() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-muted-foreground text-lg">No products available at the moment.</p>
+              <p className="text-muted-foreground text-lg">No items available at the moment.</p>
             </div>
           )}
         </div>

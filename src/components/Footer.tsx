@@ -9,11 +9,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/oil-drop.svg" alt="Sri Aarumugan Oil Mills" className="h-6 w-6" />
-              <span className="text-xl font-semibold">Sri Aarumugan Oil Mills</span>
+              <span className="text-2xl">🎂</span>
+              <span className="text-xl font-semibold">The Cake Land</span>
             </div>
             <p className="text-muted-foreground">
-              Premium manufacturer of cold-pressed sesame oil and quality seeds since 2022. Tradition meets purity.
+              Premium cake and pastry shop in Tirutani Hills since 2019. Creating delicious memories with every bite.
             </p>
             <div className="flex items-center gap-3 mt-4">
               <a href="#" aria-label="Facebook" className="h-9 w-9 rounded-full bg-background border flex items-center justify-center hover:bg-muted transition-colors">
@@ -33,8 +33,8 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3 text-muted-foreground">
               <li><Link to="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
-              <li><Link to="/products" className="hover:text-foreground transition-colors">Our Products</Link></li>
-              <li><Link to="/" className="hover:text-foreground transition-colors">Custom Orders</Link></li>
+              <li><Link to="/products" className="hover:text-foreground transition-colors">Our Menu</Link></li>
+              <li><Link to="/" className="hover:text-foreground transition-colors">Custom Cakes</Link></li>
               <li><Link to="/policy" className="hover:text-foreground transition-colors">Delivery Info</Link></li>
             </ul>
           </div>
@@ -54,21 +54,18 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3 text-muted-foreground">
-              <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-1" /><span>158Z-2/4, Vijayapuri Road, East Pandavarmangalam, Kovilpatti, Thoothukudi - 628501, Tamil Nadu, India</span></li>
-              <li className="flex items-center gap-3"><Phone className="h-4 w-4" /><span>Contact us for inquiries</span></li>
-              <li className="flex items-center gap-3"><Mail className="h-4 w-4" /><span>info@sriaarumuganoilmills.com</span></li>
+              <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-1" /><span>No 50, NSK Towers, Near Indian Oil Petrol Bunk, Arakkonam Road, Tirutani Hills - 631209</span></li>
+              <li className="flex items-center gap-3"><Phone className="h-4 w-4" /><span>Open until 10:00 PM</span></li>
+              <li className="flex items-center gap-3"><Mail className="h-4 w-4" /><span>info@thecakeland.com</span></li>
             </ul>
           </div>
         </div>
       </div>
       <div className="border-t">
         <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Sri Aarumugan Oil Mills. All rights reserved. GST: 33AEMFS3450E1Z5
+          © {new Date().getFullYear()} The Cake Land. All rights reserved. Rating: 4.8/5 (49 reviews)
         </div>
       </div>
     </footer>
   );
 }
-
-
-

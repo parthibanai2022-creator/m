@@ -119,14 +119,14 @@ export default function Auth() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-muted/50 to-background p-4">
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader className="text-center">
-          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-4">
-            <span className="text-3xl font-bold text-primary-foreground">O</span>
+          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-pink-300 to-pink-500 flex items-center justify-center mx-auto mb-4">
+            <span className="text-3xl">🎂</span>
           </div>
           <CardTitle className="text-2xl">
-            {isAdminLogin ? 'Admin Login' : 'Welcome to OilMart'}
+            {isAdminLogin ? 'Admin Login' : 'Welcome to The Cake Land'}
           </CardTitle>
           <CardDescription>
-            {isAdminLogin ? 'Access the admin dashboard' : 'Premium quality oils for your kitchen'}
+            {isAdminLogin ? 'Access the admin dashboard' : 'Delicious cakes and pastries await'}
           </CardDescription>
         </CardHeader>
         <CardContent>

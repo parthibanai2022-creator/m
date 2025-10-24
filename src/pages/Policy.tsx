@@ -24,30 +24,31 @@ export default function Policy() {
                 <div>
                   <h3 className="font-semibold mb-2">Get in Touch</h3>
                   <p className="text-muted-foreground mb-4">
-                    Have questions or need assistance? We're here to help you with all your cooking oil needs.
+                    Have questions or need assistance? We're here to help you with all your cake needs.
                   </p>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <Mail className="h-4 w-4 text-primary" />
-                      <span>info@sriaarumuganoilmills.com</span>
+                      <span>info@thecakeland.com</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone className="h-4 w-4 text-primary" />
-                      <span>+91 74492 13304</span>
+                      <span>Open until 10:00 PM</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-primary" />
                       <span>
-                        158Z-2/4, Vijayapuri Road, East Pandavarmangalam, Kovilpatti, Thoothukudi - 628501, India
+                        No 50, NSK Towers, Near Indian Oil Petrol Bunk, Arakkonam Road, Tirutani Hills - 631209
                       </span>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Business Hours</h3>
+                  <h3 className="font-semibold mb-2">Services</h3>
                   <div className="space-y-1 text-sm">
-                    <p>Monday - Saturday: Open</p>
-                    <p>Sunday: Closed</p>
+                    <p>Delivery Available</p>
+                    <p>Take Away Available</p>
+                    <p>Shop in Store</p>
                   </div>
                 </div>
               </div>
@@ -64,24 +65,24 @@ export default function Policy() {
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Legal Status:</span>
-                <span className="font-medium">Partnership</span>
+                <span className="text-muted-foreground">Business Type:</span>
+                <span className="font-medium">Cake & Pastry Shop</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Established:</span>
-                <span className="font-medium">2022</span>
+                <span className="font-medium">2019</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Proprietor:</span>
-                <span className="font-medium">P.R. Maariappan</span>
+                <span className="text-muted-foreground">Location:</span>
+                <span className="font-medium">Tirutani Hills</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">GST No:</span>
-                <span className="font-medium">33AEMFS3450E1Z5</span>
+                <span className="text-muted-foreground">Rating:</span>
+                <span className="font-medium">4.8/5 (49 reviews)</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">GST Reg. Date:</span>
-                <span className="font-medium">17-08-2021</span>
+                <span className="text-muted-foreground">Specialties:</span>
+                <span className="font-medium">Custom Cakes, Pastries</span>
               </div>
             </CardContent>
           </Card>
@@ -98,25 +99,25 @@ export default function Policy() {
               <div>
                 <h3 className="font-semibold mb-2">Delivery Areas</h3>
                 <p className="text-muted-foreground">
-                  We deliver across India with special care for our premium cooking oils. 
-                  Delivery times vary by location and are typically 3-7 business days.
+                  We deliver fresh cakes and pastries across Tirutani Hills and surrounding areas.
+                  Same-day delivery available for orders placed before 2:00 PM.
                 </p>
               </div>
               <Separator />
               <div>
-                <h3 className="font-semibold mb-2">Shipping Charges</h3>
+                <h3 className="font-semibold mb-2">Delivery Charges</h3>
                 <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                  <li>Free shipping on orders above ₹500</li>
-                  <li>Standard shipping: ₹50 for orders below ₹500</li>
-                  <li>Express delivery: ₹100 (1-2 business days)</li>
+                  <li>Free delivery on orders above ₹800</li>
+                  <li>Standard delivery: ₹50 for orders below ₹800</li>
+                  <li>Same-day delivery: ₹100 (orders before 2 PM)</li>
                 </ul>
               </div>
               <Separator />
               <div>
                 <h3 className="font-semibold mb-2">Packaging</h3>
                 <p className="text-muted-foreground">
-                  All products are carefully packaged to prevent leakage and maintain quality. 
-                  We use eco-friendly packaging materials whenever possible.
+                  All cakes and pastries are carefully packaged in premium boxes to maintain freshness.
+                  We ensure safe delivery with special care for custom decorated cakes.
                 </p>
               </div>
             </CardContent>
@@ -134,8 +135,8 @@ export default function Policy() {
               <div>
                 <h3 className="font-semibold mb-2">Acceptance of Terms</h3>
                 <p className="text-muted-foreground">
-                  By accessing and using OilMart, you accept and agree to be bound by the terms 
-                  and provision of this agreement.
+                  By accessing and using The Cake Land's services, you accept and agree to be bound by the terms
+                  and provisions of this agreement.
                 </p>
               </div>
               <Separator />
@@ -179,16 +180,16 @@ export default function Policy() {
               <div>
                 <h3 className="font-semibold mb-2">Order Cancellation</h3>
                 <p className="text-muted-foreground">
-                  You may cancel your order within 24 hours of placement, provided the order 
-                  has not been shipped. Contact our customer service to initiate cancellation.
+                  You may cancel your order up to 2 hours before scheduled delivery time for standard cakes.
+                  Custom cakes require 24-hour notice for cancellation. Contact us immediately to cancel.
                 </p>
               </div>
               <Separator />
               <div>
                 <h3 className="font-semibold mb-2">Returns</h3>
                 <p className="text-muted-foreground">
-                  We accept returns within 7 days of delivery for unopened products in 
-                  original packaging. Return shipping costs are the responsibility of the customer.
+                  Due to the perishable nature of our products, we cannot accept returns.
+                  However, we stand behind our quality and will address any quality concerns immediately.
                 </p>
               </div>
               <Separator />
@@ -269,4 +270,3 @@ export default function Policy() {
     </div>
   );
 }
-

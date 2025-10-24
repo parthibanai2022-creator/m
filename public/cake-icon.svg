@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Cake base -->
+  <path d="M20 60 L20 85 L80 85 L80 60 Z" fill="#D4A574"/>
+  <!-- Cake middle layer -->
+  <path d="M22 45 L22 60 L78 60 L78 45 Z" fill="#F7C6D8"/>
+  <!-- Cake top layer -->
+  <path d="M25 35 L25 45 L75 45 L75 35 Z" fill="#FFF5F8"/>
+  <!-- Frosting drips -->
+  <ellipse cx="30" cy="45" rx="3" ry="4" fill="#F7C6D8"/>
+  <ellipse cx="45" cy="45" rx="3" ry="4" fill="#F7C6D8"/>
+  <ellipse cx="60" cy="45" rx="3" ry="4" fill="#F7C6D8"/>
+  <!-- Candle -->
+  <rect x="47" y="25" width="6" height="10" fill="#F4D4E8" rx="1"/>
+  <!-- Flame -->
+  <ellipse cx="50" cy="22" rx="4" ry="6" fill="#FFD700"/>
+  <ellipse cx="50" cy="21" rx="2.5" ry="4" fill="#FFA500"/>
+</svg>

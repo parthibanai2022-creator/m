@@ -12,9 +12,9 @@ export default function About() {
       <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Sri Aarumugan Oil Mills</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">About The Cake Land</h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Premium manufacturer of cold-pressed sesame oil, sesame seeds, and cotton seed cake since 2022
+              Premium cake and pastry shop serving Tirutani Hills since 2019
             </p>
           </div>
         </div>
@@ -33,14 +33,14 @@ export default function About() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  Established in 2022, Sri Aarumugan Oil Mills is a partnership firm dedicated to manufacturing
-                  premium quality cold-pressed oils and seeds. Located in Kovilpatti, Thoothukudi district of
-                  Tamil Nadu, we blend traditional oil extraction methods with modern quality standards.
+                  Established in 2019, The Cake Land has been serving the Tirutani Hills community with
+                  delicious, soft cakes and premium pastries. Located at NSK Towers on Arakkonam Road,
+                  we've become a beloved destination for cake lovers seeking quality and taste.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Under the leadership of our proprietor P.R. Maariappan, we have built a reputation for
-                  delivering authentic, pure products that honor our heritage while meeting contemporary health
-                  and quality expectations.
+                  With a stellar 4.8/5 rating from 49 reviews, we pride ourselves on excellent customer service,
+                  fast response times, and creating beautiful customized cakes for every special occasion.
+                  Our commitment to freshness and quality has made us a trusted name in the community.
                 </p>
               </CardContent>
             </Card>
@@ -49,38 +49,38 @@ export default function About() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl">
                   <Award className="h-6 w-6 text-primary" />
-                  Our Products
+                  Our Specialties
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  We specialize in three core product categories:
+                  We offer a delightful variety of cakes and pastries:
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <Shield className="h-5 w-5 text-primary mt-1 shrink-0" />
                     <div>
-                      <strong className="block">Gingelly Oil (Sesame Oil)</strong>
+                      <strong className="block">Custom Cakes</strong>
                       <span className="text-muted-foreground">
-                        Available in 1 Ltr & 500ml pouches, and 1 Ltr, 500ml & 200ml PET bottles under the Arumugan brand
+                        Personalized designs for birthdays, weddings, and special celebrations. We bring your vision to life.
                       </span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Shield className="h-5 w-5 text-primary mt-1 shrink-0" />
                     <div>
-                      <strong className="block">Sesame Seeds</strong>
+                      <strong className="block">Signature Flavors</strong>
                       <span className="text-muted-foreground">
-                        Premium quality sesame seeds for various culinary and industrial applications
+                        Red velvet, rainbow cakes, chocolate truffle, vanilla delight, and many more delicious varieties
                       </span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Shield className="h-5 w-5 text-primary mt-1 shrink-0" />
                     <div>
-                      <strong className="block">Cotton Seed Cake</strong>
+                      <strong className="block">Fresh Pastries</strong>
                       <span className="text-muted-foreground">
-                        High-quality cotton seed cake for agricultural and livestock use
+                        Daily-baked croissants, tarts, cookies, and other delightful treats
                       </span>
                     </div>
                   </li>
@@ -92,51 +92,51 @@ export default function About() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl">
                   <FileCheck className="h-6 w-6 text-primary" />
-                  Company Fact Sheet
+                  Business Information
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-semibold mb-2">Legal Information</h3>
+                    <h3 className="font-semibold mb-2">Store Details</h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Legal Status:</span>
-                        <span className="font-medium">Partnership</span>
+                        <span className="text-muted-foreground">Type:</span>
+                        <span className="font-medium">Cake & Pastry Shop</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Established:</span>
-                        <span className="font-medium">2022</span>
+                        <span className="font-medium">2019</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">GST No:</span>
-                        <span className="font-medium">33AEMFS3450E1Z5</span>
+                        <span className="text-muted-foreground">Rating:</span>
+                        <span className="font-medium">4.8/5 (49 reviews)</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">GST Reg. Date:</span>
-                        <span className="font-medium">17-08-2021</span>
+                        <span className="text-muted-foreground">Hours:</span>
+                        <span className="font-medium">Open until 10:00 PM</span>
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold mb-2">Business Details</h3>
+                    <h3 className="font-semibold mb-2">Services Offered</h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Nature of Business:</span>
-                        <span className="font-medium">Manufacturer, Retail</span>
+                        <span className="text-muted-foreground">Delivery:</span>
+                        <span className="font-medium">Available</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Total Employees:</span>
-                        <span className="font-medium">Upto 10 People</span>
+                        <span className="text-muted-foreground">Take Away:</span>
+                        <span className="font-medium">Available</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Annual Turnover:</span>
-                        <span className="font-medium">1.5 - 5 Cr</span>
+                        <span className="text-muted-foreground">Shop in Store:</span>
+                        <span className="font-medium">Available</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Proprietor:</span>
-                        <span className="font-medium">P.R. Maariappan</span>
+                        <span className="text-muted-foreground">Custom Orders:</span>
+                        <span className="font-medium">Available</span>
                       </div>
                     </div>
                   </div>
@@ -153,13 +153,14 @@ export default function About() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  At Sri Aarumugan Oil Mills, we are committed to preserving the traditional methods of
-                  oil extraction while ensuring the highest standards of hygiene and quality. Our cold-pressed
-                  oils retain natural nutrients and authentic flavors.
+                  At The Cake Land, we are committed to baking fresh, delicious cakes every day using
+                  the finest ingredients. Our dedication to quality and taste has earned us a loyal
+                  customer base and excellent reviews.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  We believe in transparency, quality, and customer satisfaction. Every product that leaves
-                  our facility carries our promise of purity and excellence.
+                  We believe in creating sweet memories for every occasion. With excellent customer service,
+                  fast response times, and attention to detail, every cake that leaves our shop carries
+                  our promise of deliciousness and joy.
                 </p>
               </CardContent>
             </Card>
@@ -172,5 +173,4 @@ export default function About() {
     </div>
   );
 }
-
 

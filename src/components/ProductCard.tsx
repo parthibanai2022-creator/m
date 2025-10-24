@@ -25,13 +25,12 @@ export default function ProductCard({ product, onUpdate, compact = false }: Prod
   const [isAddingToWishlist] = useState(false);
 
   if (compact) {
-    // Extract volume from product name (e.g., "Sesame Oil 3L" -> "3L", "Oil 2L" -> "2L")
     const volumeMatch = product.name.match(/(\d+\.?\d*[Ll])/);
     const volumeText = volumeMatch ? volumeMatch[1].toUpperCase() : product.name.slice(-2).toUpperCase();
-    
+
     return (
       <div
-        className="w-[1.5cm] h-[1.5cm] flex items-center justify-center bg-yellow-400 rounded-lg cursor-pointer transition-all duration-300"
+        className="w-[1.5cm] h-[1.5cm] flex items-center justify-center bg-pink-300 rounded-lg cursor-pointer transition-all duration-300"
         onClick={() => navigate(`/product/${product.id}`)}
       >
         <span className="text-sm font-bold text-gray-800">{volumeText}</span>

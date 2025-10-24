@@ -3,7 +3,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import Navbar from '@/components/Navbar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Package, ShoppingCart, Tag, Users, FolderOpen } from 'lucide-react';
+import { Package, ShoppingCart, Tag, Users, FolderOpen, Cake } from 'lucide-react';
 import { useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { playNotificationTone } from '@/lib/utils';
@@ -38,7 +38,7 @@ export default function AdminDashboard() {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8">Admin Dashboard</h1>
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/admin/users')}>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -96,6 +96,18 @@ export default function AdminDashboard() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Manage discount coupons</p>
+            </CardContent>
+          </Card>
+
+          <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/admin/customization-cakes')}>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Cake className="h-5 w-5" />
+                Customization Cakes
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">Manage flavours, tiers & designs</p>
             </CardContent>
           </Card>
         </div>

@@ -18,6 +18,7 @@ import AdminOrders from "./pages/admin/Orders";
 import AdminCoupons from "./pages/admin/Coupons";
 import AdminUsers from "./pages/admin/Users";
 import AdminCategories from "./pages/admin/Categories";
+import AdminCustomizationCakes from "./pages/admin/CustomizationCakes";
 import NotFound from "./pages/NotFound";
 import Payment from "./pages/Payment";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/admin/orders" element={<AdminOrders />} />
             <Route path="/admin/categories" element={<AdminCategories />} />
             <Route path="/admin/coupons" element={<AdminCoupons />} />
+            <Route path="/admin/customization-cakes" element={<AdminCustomizationCakes />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -36,9 +36,9 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/oil-drop.svg" alt="Sri Aarumugan Oil Mills" className="w-10 h-10" />
-            <span className="hidden md:inline text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Sri Aarumugan Oil Mills
+            <span className="text-3xl">🎂</span>
+            <span className="hidden md:inline text-xl font-bold bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent">
+              The Cake Land
             </span>
           </Link>
 
@@ -65,7 +65,7 @@ export default function Navbar() {
                 )}
               >
                 <Package className="h-4 w-4" />
-                Products
+                Menu
               </Button>
               <Button
                 variant="ghost"
@@ -181,7 +181,7 @@ export default function Navbar() {
                   )}
                 >
                   <Package className="h-4 w-4" />
-                  Products
+                  Menu
                 </Button>
                 <Button variant="outline" onClick={() => navigate('/auth')}>
                   Login
@@ -204,8 +204,8 @@ export default function Navbar() {
                   <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/')}> 
                     <House className="h-4 w-4" /> Home
                   </Button>
-                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/products')}> 
-                    <Package className="h-4 w-4" /> Products
+                  <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/products')}>
+                    <Package className="h-4 w-4" /> Menu
                   </Button>
                   <Button variant="ghost" className="justify-start gap-2" onClick={() => navigate('/about')}> 
                     <Info className="h-4 w-4" /> About Us

@@ -14,6 +14,7 @@ interface Tier {
   tier_number: number;
   min_weight_kg: number;
   max_weight_kg: number;
+  tier_cost: number;
   created_at: string;
   updated_at: string;
 }
@@ -26,6 +27,7 @@ export default function TiersTab() {
     tier_number: '',
     min_weight_kg: '',
     max_weight_kg: '',
+    tier_cost: '',
   });
 
   const { data: tiers } = useQuery({
@@ -49,6 +51,7 @@ export default function TiersTab() {
       const tierNumber = parseInt(formData.tier_number);
       const minWeight = parseFloat(formData.min_weight_kg);
       const maxWeight = parseFloat(formData.max_weight_kg);
+      const tierCost = formData.tier_cost ? parseFloat(formData.tier_cost) : 0;
 
       if (tierNumber < 1 || tierNumber > 4) {
         throw new Error('Tier number must be between 1 and 4');
@@ -62,6 +65,10 @@ export default function TiersTab() {
         throw new Error('Minimum weight must be less than maximum weight');
       }
 
+      if (tierCost < 0) {
+        throw new Error('Tier cost cannot be negative');
+      }
+
       if (!editingTier && tiers && tiers.length >= 4) {
         throw new Error('Maximum of 4 tiers allowed');
       }
@@ -71,6 +78,7 @@ export default function TiersTab() {
           tier_number: tierNumber,
           min_weight_kg: minWeight,
           max_weight_kg: maxWeight,
+          tier_cost: tierCost,
           updated_at: new Date().toISOString(),
         }).eq('id', editingTier.id);
         if (error) throw error;
@@ -79,6 +87,7 @@ export default function TiersTab() {
           tier_number: tierNumber,
           min_weight_kg: minWeight,
           max_weight_kg: maxWeight,
+          tier_cost: tierCost,
         });
         if (error) throw error;
       }
@@ -87,7 +96,7 @@ export default function TiersTab() {
       toast.success(editingTier ? 'Tier updated successfully' : 'Tier added successfully');
       setShowDialog(false);
       setEditingTier(null);
-      setFormData({ tier_number: '', min_weight_kg: '', max_weight_kg: '' });
+      setFormData({ tier_number: '', min_weight_kg: '', max_weight_kg: '', tier_cost: '' });
       queryClient.invalidateQueries({ queryKey: ['tiers'] });
     },
     onError: (error: Error) => {
@@ -115,6 +124,7 @@ export default function TiersTab() {
       tier_number: tier.tier_number.toString(),
       min_weight_kg: tier.min_weight_kg.toString(),
       max_weight_kg: tier.max_weight_kg.toString(),
+      tier_cost: tier.tier_cost?.toString() || '0',
     });
     setShowDialog(true);
   };
@@ -125,7 +135,7 @@ export default function TiersTab() {
       return;
     }
     setEditingTier(null);
-    setFormData({ tier_number: '', min_weight_kg: '', max_weight_kg: '' });
+    setFormData({ tier_number: '', min_weight_kg: '', max_weight_kg: '', tier_cost: '0' });
     setShowDialog(true);
   };
 
@@ -155,6 +165,10 @@ export default function TiersTab() {
                 <p className="font-medium">
                   {tier.min_weight_kg} - {tier.max_weight_kg} kg
                 </p>
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Base Cost / Chef Charge</p>
+                <p className="font-medium">₹{tier.tier_cost || 0}</p>
               </div>
               <div className="flex gap-2">
                 <Button
@@ -186,7 +200,7 @@ export default function TiersTab() {
       </div>
 
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
-        <DialogContent>
+        <DialogContent className="max-w-lg">
           <DialogHeader>
             <DialogTitle>{editingTier ? 'Edit Tier' : 'Add New Tier'}</DialogTitle>
           </DialogHeader>
@@ -205,30 +219,47 @@ export default function TiersTab() {
               />
             </div>
 
-            <div>
-              <Label>Minimum Weight (kg) <span className="text-destructive">*</span></Label>
-              <Input
-                type="number"
-                step="0.01"
-                min="0.01"
-                value={formData.min_weight_kg}
-                onChange={(e) => setFormData({ ...formData, min_weight_kg: e.target.value })}
-                placeholder="0.5"
-                required
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label>Minimum Weight (kg) <span className="text-destructive">*</span></Label>
+                <Input
+                  type="number"
+                  step="0.01"
+                  min="0.01"
+                  value={formData.min_weight_kg}
+                  onChange={(e) => setFormData({ ...formData, min_weight_kg: e.target.value })}
+                  placeholder="0.5"
+                  required
+                />
+              </div>
+
+              <div>
+                <Label>Maximum Weight (kg) <span className="text-destructive">*</span></Label>
+                <Input
+                  type="number"
+                  step="0.01"
+                  min="0.01"
+                  value={formData.max_weight_kg}
+                  onChange={(e) => setFormData({ ...formData, max_weight_kg: e.target.value })}
+                  placeholder="2.0"
+                  required
+                />
+              </div>
             </div>
 
             <div>
-              <Label>Maximum Weight (kg) <span className="text-destructive">*</span></Label>
+              <Label>Base Cost / Chef Charge (₹)</Label>
               <Input
                 type="number"
                 step="0.01"
-                min="0.01"
-                value={formData.max_weight_kg}
-                onChange={(e) => setFormData({ ...formData, max_weight_kg: e.target.value })}
-                placeholder="2.0"
-                required
+                min="0"
+                value={formData.tier_cost}
+                onChange={(e) => setFormData({ ...formData, tier_cost: e.target.value })}
+                placeholder="0.00"
               />
+              <p className="text-xs text-muted-foreground mt-1">
+                Additional charge for this tier (optional)
+              </p>
             </div>
           </div>
 

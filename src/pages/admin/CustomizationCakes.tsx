@@ -8,6 +8,7 @@ import { ArrowLeft } from 'lucide-react';
 import FlavoursTab from './customization/FlavoursTab';
 import TiersTab from './customization/TiersTab';
 import DesignModelsTab from './customization/DesignModelsTab';
+import ToppingsTab from './customization/ToppingsTab';
 
 export default function CustomizationCakes() {
   const { isAdmin } = useAuth();
@@ -36,10 +37,11 @@ export default function CustomizationCakes() {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full max-w-md grid-cols-3 mb-8">
+          <TabsList className="grid w-full max-w-2xl grid-cols-4 mb-8">
             <TabsTrigger value="flavours">Flavours</TabsTrigger>
             <TabsTrigger value="tiers">Tiers</TabsTrigger>
             <TabsTrigger value="designs">Design Models</TabsTrigger>
+            <TabsTrigger value="toppings">Toppings</TabsTrigger>
           </TabsList>
 
           <TabsContent value="flavours" className="mt-0">
@@ -52,6 +54,10 @@ export default function CustomizationCakes() {
 
           <TabsContent value="designs" className="mt-0">
             <DesignModelsTab />
+          </TabsContent>
+
+          <TabsContent value="toppings" className="mt-0">
+            <ToppingsTab />
           </TabsContent>
         </Tabs>
       </div>

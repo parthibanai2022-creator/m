@@ -138,6 +138,29 @@ export default function Home() {
         </section>
       )}
 
+      {/* Customize Your Cake Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-pink-100 flex items-center justify-center">
+                <img src="/cake-icon.svg" alt="Cake" className="w-12 h-12" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Create Your Dream Cake</h2>
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Design a personalized cake that's uniquely yours. Choose your favorite flavour, select the perfect size, pick a stunning design, and add delicious toppings.
+              </p>
+            </div>
+            <Link to="/customize-cake">
+              <Button size="lg" className="text-lg px-10 py-7 bg-pink-400 hover:bg-pink-500 shadow-lg">
+                <Award className="mr-2 h-6 w-6" />
+                Customize Your Cake
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Our Products - horizontal scroll (1 mobile, 3 desktop) */}
       {nonFeaturedProducts && nonFeaturedProducts.length > 0 && (
         <section className="py-16">

@@ -26,7 +26,13 @@ export default function PaymentConfirmation() {
       if (!orderId) return null;
       const { data, error } = await supabase
         .from('orders')
-        .select('*, order_items(*)')
+        .select(`
+          *,
+          order_items(
+            *,
+            products(description)
+          )
+        `)
         .eq('id', orderId)
         .maybeSingle();
       if (error) throw error;
@@ -40,8 +46,15 @@ export default function PaymentConfirmation() {
   const formattedItems = useMemo(() => {
     if (!order?.order_items?.length) return '';
     return order.order_items
-      .map((it: any) => `-${it.product_name} × ${Number(it.quantity_litres)} — ₹${Number(it.total_price).toFixed(2)}`)
-      .join('\n');
+      .map((it: any) => {
+        const description = it.products?.description || '';
+        const itemLine = `- ${it.product_name} × ${Number(it.quantity_litres)} — ₹${Number(it.total_price).toFixed(2)}`;
+        if (description) {
+          return `${itemLine}\n  ${description.split('\n').join('\n  ')}`;
+        }
+        return itemLine;
+      })
+      .join('\n\n');
   }, [order]);
 
   const message = useMemo(() => {

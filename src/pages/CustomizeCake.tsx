@@ -140,6 +140,32 @@ export default function CustomizeCake() {
     setSelectedDesign('');
   }, [selectedTier]);
 
+  const generateCustomDescription = () => {
+    if (!selectedFlavourData || !selectedTierData || !selectedDesignData) return '';
+
+    const toppingsList = toppings
+      ?.filter(t => selectedToppings.includes(t.id))
+      .map(t => `${t.name} (+₹${t.price})`)
+      .join(', ');
+
+    const lines = [
+      '⚠️ This description is system-generated. Do not delete or manually modify.',
+      '',
+      `🎂 Flavour: ${selectedFlavourData.name} (₹${selectedFlavourData.base_price_per_kg}/kg)`,
+      `📏 Tier: ${selectedTierData.tier_number} (${selectedTierData.min_weight_kg}-${selectedTierData.max_weight_kg} kg)${selectedTierData.tier_cost > 0 ? ` - Chef Charge: ₹${selectedTierData.tier_cost}` : ''}`,
+      `⚖️ Weight: ${selectedWeight} kg`,
+      `🎨 Design Model: ${selectedDesignData.model_name} (${selectedDesignData.model_number}) - ₹${selectedDesignData.price}`,
+    ];
+
+    if (toppingsList) {
+      lines.push(`🍓 Toppings: ${toppingsList}`);
+    }
+
+    lines.push('', `💰 Final Price: ₹${totalPrice.toFixed(2)}`);
+
+    return lines.join('\n');
+  };
+
   const addToCartMutation = useMutation({
     mutationFn: async () => {
       if (!user) {
@@ -150,6 +176,7 @@ export default function CustomizeCake() {
         throw new Error('Please complete all required selections');
       }
 
+      const customDescription = generateCustomDescription();
       const toppingNames = toppings
         ?.filter(t => selectedToppings.includes(t.id))
         .map(t => t.name)
@@ -170,7 +197,7 @@ export default function CustomizeCake() {
           .from('products')
           .insert({
             name: 'Customized Cake',
-            description: 'Custom designed cake',
+            description: customDescription,
             price_per_litre: selectedFlavourData?.base_price_per_kg || 0,
             stock_quantity: 9999,
             is_active: true,
@@ -180,6 +207,15 @@ export default function CustomizeCake() {
 
         if (createError) throw createError;
         productId = newProduct.id;
+      } else {
+        const { error: updateError } = await supabase
+          .from('products')
+          .update({
+            description: customDescription,
+          })
+          .eq('id', productId);
+
+        if (updateError) throw updateError;
       }
 
       const { data: existingCartItem } = await supabase
